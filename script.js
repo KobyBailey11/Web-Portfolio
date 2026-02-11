@@ -63,11 +63,23 @@ if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
+        // Get form elements
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const subjectInput = document.getElementById('subject');
+        const messageInput = document.getElementById('message');
+
+        // Validate elements exist
+        if (!nameInput || !emailInput || !subjectInput || !messageInput) {
+            alert('Form error: Missing required fields.');
+            return;
+        }
+
         // Get form values
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
+        const name = nameInput.value;
+        const email = emailInput.value;
+        const subject = subjectInput.value;
+        const message = messageInput.value;
 
         // Simple validation
         if (name && email && subject && message) {
