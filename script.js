@@ -3,10 +3,12 @@ const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+}
 
 // Close mobile menu when clicking on a nav link
 navLinks.forEach(link => {
@@ -57,24 +59,26 @@ window.addEventListener('scroll', () => {
 // Contact Form Handling
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
 
-    // Simple validation
-    if (name && email && subject && message) {
-        // In a real application, you would send this data to a backend
-        alert(`Thank you for your message, ${name}! This is a demo form. In production, this would be sent to a server.`);
-        contactForm.reset();
-    } else {
-        alert('Please fill in all fields.');
-    }
-});
+        // Simple validation
+        if (name && email && subject && message) {
+            // In a real application, you would send this data to a backend
+            alert(`Thank you for your message, ${name}! This is a demo form. In production, this would be sent to a server.`);
+            contactForm.reset();
+        } else {
+            alert('Please fill in all fields.');
+        }
+    });
+}
 
 // Add scroll-based animations
 const observerOptions = {
